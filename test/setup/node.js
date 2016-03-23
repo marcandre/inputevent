@@ -10,5 +10,5 @@ require('./setup')();
 	for example if writing a jQuery extension, and
 	add 'simple-jsdom' to the `devDependencies` of your package.json
 */
-// import simpleJSDom from 'simple-jsdom';
-// simpleJSDom.install();
+import simpleJSDom from 'simple-jsdom';
+simpleJSDom.install();
