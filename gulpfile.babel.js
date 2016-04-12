@@ -119,6 +119,7 @@ function _browserifyBundle() {
   const allFiles = ['./test/setup/browserify.js'].concat(testFiles);
 
   // Create our bundler, passing in the arguments required for watchify
+  watchify.args.debug = true;
   let bundler = browserify(allFiles, watchify.args);
 
   // Watch the bundler, and re-bundle it whenever files change
