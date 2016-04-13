@@ -42,7 +42,7 @@ function InputEvent() {
       if (globals.inputEventPatched) {
         return;
       }
-      globals.inputEventPatched = '0.0.1';
+      globals.inputEventPatched = '0.0.2';
       for (let selector of this.inputsToCheck) {
         $(document)
           .on('input.inputevent', selector, {selector}, this.behavesOk)
