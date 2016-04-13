@@ -3,8 +3,8 @@ import $ from 'jquery';
 function InputEvent() {
   let globals = window || global;
 
-  // Slightly odd way to have the object constructed have method force bound.
-  // Used to test duplicate library
+  // Slightly odd way construct our object. This way methods are force bound.
+  // Used to test for duplicate library.
   $.extend(this, {
 
     inputsToCheck: ['select', 'input[type="checkbox"]', 'input[type="radio"]'],
