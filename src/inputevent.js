@@ -7,7 +7,7 @@ function InputEvent() {
   // Used to test for duplicate library.
   $.extend(this, {
 
-    inputsToCheck: ['select', 'input[type="checkbox"]', 'input[type="radio"]'],
+    inputsToCheck: ['select', 'input[type="checkbox"]', 'input[type="radio"]', 'input[type="file"]'],
 
     // For browsers that do not support isTrusted, assumes event is native.
     isNativeEvent: evt => {
