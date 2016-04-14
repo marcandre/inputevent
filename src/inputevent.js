@@ -7,8 +7,6 @@ function InputEvent() {
   // Used to test for duplicate library.
   $.extend(this, {
 
-    inputsToCheck: ['select', 'input[type="checkbox"]', 'input[type="radio"]', 'input[type="file"]'],
-
     // For browsers that do not support isTrusted, assumes event is native.
     isNativeEvent: evt => {
       return evt.originalEvent && evt.originalEvent.isTrusted !== false;
@@ -43,7 +41,7 @@ function InputEvent() {
         return;
       }
       globals.inputEventPatched = '0.0.2';
-      for (let selector of this.inputsToCheck) {
+      for (let selector of ['select', 'input[type="checkbox"]', 'input[type="radio"]', 'input[type="file"]']) {
         $(document)
           .on('input.inputevent', selector, {selector}, this.behavesOk)
           .on('change.inputevent', selector, {selector}, this.misbehaves);
