@@ -1,7 +1,7 @@
 /**
  * inputevent - Alleviate browser bugs for input events
  * https://github.com/marcandre/inputevent
- * @version v0.0.2 - (built Wed, Apr 13th 2016, 2:06 pm)
+ * @version v0.0.3 - (built Thu, Apr 14th 2016, 5:58 pm)
  * @author Marc-Andre Lafortune <github@marc-andre.ca>
  * @license MIT
  */
@@ -20,8 +20,6 @@
     // Slightly odd way construct our object. This way methods are force bound.
     // Used to test for duplicate library.
     $.extend(this, {
-
-      inputsToCheck: ['select', 'input[type="checkbox"]', 'input[type="radio"]', 'input[type="file"]'],
 
       // For browsers that do not support isTrusted, assumes event is native.
       isNativeEvent: function isNativeEvent(evt) {
@@ -54,30 +52,11 @@
         if (globals.inputEventPatched) {
           return;
         }
-        globals.inputEventPatched = '0.0.2';
-        var _iteratorNormalCompletion = true;
-        var _didIteratorError = false;
-        var _iteratorError = undefined;
-
-        try {
-          for (var _iterator = _this.inputsToCheck[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            var selector = _step.value;
-
-            $(document).on('input.inputevent', selector, { selector: selector }, _this.behavesOk).on('change.inputevent', selector, { selector: selector }, _this.misbehaves);
-          }
-        } catch (err) {
-          _didIteratorError = true;
-          _iteratorError = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion && _iterator['return']) {
-              _iterator['return']();
-            }
-          } finally {
-            if (_didIteratorError) {
-              throw _iteratorError;
-            }
-          }
+        globals.inputEventPatched = '0.0.3';
+        var _arr = ['select', 'input[type="checkbox"]', 'input[type="radio"]', 'input[type="file"]'];
+        for (var _i = 0; _i < _arr.length; _i++) {
+          var selector = _arr[_i];
+          $(document).on('input.inputevent', selector, { selector: selector }, _this.behavesOk).on('change.inputevent', selector, { selector: selector }, _this.misbehaves);
         }
       },
 
